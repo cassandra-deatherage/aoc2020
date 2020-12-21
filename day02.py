@@ -1,5 +1,4 @@
-input =
-"""6-8 s: svsssszslpsp
+input = """6-8 s: svsssszslpsp
 3-4 n: gncn
 4-8 v: vkvmvdmvhttvvrgvvwv
 16-18 j: jjjjjjjjjjjjjjjjjf
@@ -1002,8 +1001,27 @@ input =
 
 #create an array of the numbers
 passwords = []
-for line in input.splitlines():
-    x = int(line)
-    passwords.append(x)
+valid = 0
+for line in input.splitlines(): #in py for loops iterate on their own
+    #take each line and parse the data into different fields
+    nums, letter, password = line.split(" ")
+    #x = int(line)
+    #passwords.append(x)
+#    print(nums, letter, password)
+    #destructuring - taking two elements of an array placing each to a new var.
+    l, h = nums.split("-")
+    #reassigning the strings of l & h to ints
+    l = int (l) # int is a fn call in py
+    h = int (h)
+    letter = letter[0:1]
+    print(l, h, letter, password)
+    lcount = 0
+    for i in password:
+        if letter == i:
+           lcount += 1
+    if l<= lcount <=h:
+        valid += 1
 
-print (passwords)
+print (valid)
+    
+
