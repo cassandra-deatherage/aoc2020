@@ -200,13 +200,16 @@ input = """1652
 1278
 1861"""
 
+#create an array of the numbers
 nums = []
 for line in input.splitlines():
     x = int(line)
     nums.append(x)
 
 print(nums)
-
+#subtract the first number from 2020
+#check the rest in the range to see if they are the equivalent
+#if they are then print and exit
 def part1(nums):
     for i in range(len(nums)):
         x = nums[i]
@@ -219,5 +222,29 @@ def part1(nums):
 
                 return answer
 
+#call the function
 part1(nums)
+
+#find the three numbers that sum to 2020
+def part2(nums):
+    for i in range(len(nums)):
+        a = nums[i]
+        difference_a = 2020 - nums[i]
+        for j in range(i+1, len(nums)):
+            b = nums[j]
+            difference_b = 2020 - nums[j]
+            for k in range(i+2, len(nums)):
+                c = nums[k]
+                if a+b+c == 2020:
+                    print(f"a ={a} b ={nums[j]} c ={nums[k]}")
+                    sum = a+b+c
+                    print (sum)
+
+                    #find the product of the three numbers
+                    product = a * b * c
+                    print (product)
+                    return product
+#call the function
+part2(nums)
+
 
