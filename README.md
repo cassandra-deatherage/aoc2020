@@ -1,2 +1,2 @@
-# aoc2020
+# aoc
 advent of code
